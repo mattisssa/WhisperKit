@@ -174,6 +174,7 @@ public class AudioProcessor: NSObject, AudioProcessing {
     public var audioEnergy: [(rel: Float, avg: Float, max: Float, min: Float)] = []
     public var relativeEnergyWindow: Int = 20
     public var relativeEnergy: [Float] {
+        guard !self.audioEnergy.isEmpty else { return [] }
         return self.audioEnergy.map { $0.rel }
     }
 
